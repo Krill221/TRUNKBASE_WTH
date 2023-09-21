@@ -8,9 +8,12 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup libs
+    - name: Setup actions
       uses: actions/checkout@v3
-    - uses: oven-sh/setup-bun@v1
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v1
     - name: Run prettier
       run: |-
+        cd bun_server
+        bun install
         bun prettier . --check
