@@ -7,3 +7,5 @@ Bun.serve({
   },
   port: 3000,
 });
+
+const s = 1;
