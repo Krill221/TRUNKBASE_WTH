@@ -1,0 +1,16 @@
+name: Test check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup libs
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+    - name: Run prettier
+      run: |-
+        bun prettier . --check
