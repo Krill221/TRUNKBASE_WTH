@@ -39,10 +39,8 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Run bdd
         run: |-
-          cd bun_server
+          cd bdd
           bun i
-          bun start &
-          cd ../bdd
-          bun i
-          cypress run
+          bun cypress install
+          bun cypress run
 
