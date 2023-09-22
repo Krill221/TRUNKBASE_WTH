@@ -5,27 +5,48 @@ on:
   pull_request:
 
 jobs:
-  prettier:
+  # prettier:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Setup actions
+  #     uses: actions/checkout@v4
+  #   - name: Setup bun
+  #     uses: oven-sh/setup-bun@v1
+  #   - name: Run prettier
+  #     run: |-
+  #       cd bun_server
+  #       bun i
+  #       bun run pretty
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Setup actions
+  #     uses: actions/checkout@v4
+  #   - name: Setup bun
+  #     uses: oven-sh/setup-bun@v1
+  #   - name: Run lint
+  #     run: |-
+  #       cd bun_server
+  #       bun i
+  #       bun run lint
+
+  bdd:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup actions
-      uses: actions/checkout@v3
-    - name: Setup bun
-      uses: oven-sh/setup-bun@v1
-    - name: Run prettier
-      run: |-
-        cd bun_server
-        bun i
-        bun run pretty
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Setup actions
-      uses: actions/checkout@v3
-    - name: Setup bun
-      uses: oven-sh/setup-bun@v1
-    - name: Run lint
-      run: |-
-        cd bun_server
-        bun i
-        bun run lint
+      - name: Setup actions
+        uses: actions/checkout@v4
+      - name: Setup cypress
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: false
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+      - name: Run bdd
+        run: |-
+          cd bun_server
+          bun i
+          bun dev
+          cd ../bdd
+          bun i
+          cypress run
+

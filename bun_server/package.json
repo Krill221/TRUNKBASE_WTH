@@ -15,12 +15,15 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
+    "fix": "bun prettier . --write | eslint . --ext .ts",
     "start": "bun run index.ts",
     "dev": "bun --watch index.ts",
     "lint": "eslint . --ext .ts",
     "pretty": "bun prettier . --check"
   },
   "dependencies": {
+    "@amplitude/analytics-node": "^1.3.3",
+    "@amplitude/experiment-node-server": "^1.7.4",
     "figlet": "^1.6.0"
   }
 }
