@@ -1,34 +1,34 @@
-name: Test bun_server (prettier, eslint)
+name: Test bun_server (prettier, eslint, bdd)
 
 on:
-  push:
+  # push:
   pull_request:
 
 jobs:
-  # prettier:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Setup actions
-  #     uses: actions/checkout@v4
-  #   - name: Setup bun
-  #     uses: oven-sh/setup-bun@v1
-  #   - name: Run prettier
-  #     run: |-
-  #       cd bun_server
-  #       bun i
-  #       bun run pretty
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Setup actions
-  #     uses: actions/checkout@v4
-  #   - name: Setup bun
-  #     uses: oven-sh/setup-bun@v1
-  #   - name: Run lint
-  #     run: |-
-  #       cd bun_server
-  #       bun i
-  #       bun run lint
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup actions
+      uses: actions/checkout@v4
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v1
+    - name: Run prettier
+      run: |-
+        cd bun_server
+        bun i
+        bun run pretty
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup actions
+      uses: actions/checkout@v4
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v1
+    - name: Run lint
+      run: |-
+        cd bun_server
+        bun i
+        bun run lint
 
   bdd:
     runs-on: ubuntu-latest
