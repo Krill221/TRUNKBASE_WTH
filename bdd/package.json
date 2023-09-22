@@ -21,7 +21,6 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.17.1",
     "@types/node": "^20.3.2",
-    "dist": "link:@cypress/webpack-preprocessor/dist",
     "typescript": "^5.1.6",
     "bun-types": "latest"
   }
