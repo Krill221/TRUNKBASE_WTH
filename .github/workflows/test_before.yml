@@ -41,7 +41,7 @@ jobs:
         run: |-
           cd bun_server
           bun i
-          bun dev
+          bun start &
           cd ../bdd
           bun i
           cypress run
