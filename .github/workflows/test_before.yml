@@ -5,7 +5,8 @@ on:
   pull_request:
 
 jobs:
-  prettier:
+  codeCheck:
+    name: prettier and lint
     runs-on: ubuntu-latest
     steps:
     - name: Setup actions
@@ -17,22 +18,10 @@ jobs:
         cd bun_server
         bun i
         bun run pretty
-  lint:
-    needs: prettier
-    runs-on: ubuntu-latest
-    steps:
-    - name: Setup actions
-      uses: actions/checkout@v4
-    - name: Setup bun
-      uses: oven-sh/setup-bun@v1
-    - name: Run lint
-      run: |-
-        cd bun_server
-        bun i
         bun run lint
-
   bdd:
-    needs: lint
+    name: BDD
+    needs: codeCheck
     runs-on: ubuntu-latest
     steps:
       - name: Setup actions
