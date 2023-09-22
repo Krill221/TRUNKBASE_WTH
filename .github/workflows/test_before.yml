@@ -35,10 +35,6 @@ jobs:
     steps:
       - name: Setup actions
         uses: actions/checkout@v4
-      - name: Setup cypress
-        uses: cypress-io/github-action@v6
-        with:
-          runTests: false
       - name: Setup bun
         uses: oven-sh/setup-bun@v1
       - name: Run bdd
